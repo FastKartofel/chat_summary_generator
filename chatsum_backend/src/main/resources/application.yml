@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  shutdown: graceful
+  tomcat:
+    max-swallow-size: 25MB
+
+spring:
+  application:
+    name: chat-handoff-backend
+  main:
+    banner-mode: "off"
+  mvc:
+    problemdetails:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.apache.coyote.http11: INFO
+    com.example.chatsum_backend: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+openai:
+  apiKey: ${OPENAI_API_KEY:}
+  model: ${OPENAI_MODEL:gpt-5-mini}
+
+  pricing:
+    input-per1-m: ${OPENAI_PRICE_INPUT_PER_1M:5.0}
+    output-per1-m: ${OPENAI_PRICE_OUTPUT_PER_1M:15.0}
+
+  timeouts:
+    connect-seconds: ${OPENAI_CONNECT_TIMEOUT_SECONDS:20}
+    request-seconds: ${OPENAI_REQUEST_TIMEOUT_SECONDS:300}
