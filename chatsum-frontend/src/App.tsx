@@ -412,6 +412,13 @@ Privacy note: keep sensitive data out of transcripts whenever possible.`;
                                         <span style={{ opacity: 0.7 }}>({jobProgress || 0}%)</span>
                                     </div>
 
+                                    {jobStatus && (
+                                        <div style={{ marginTop: 6, opacity: 0.8 }}>
+                                            Status: <span className="mono">{jobStatus}</span>
+                                            {jobId ? <span style={{ opacity: 0.7 }}> • {jobId}</span> : null}
+                                        </div>
+                                    )}
+
                                     <div
                                         style={{
                                             marginTop: 6,

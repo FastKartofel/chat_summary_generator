@@ -209,9 +209,6 @@ export default function AnimatedBackground({ isLoading = false, mode }: Props) {
         // 🔑 Eye-friendly tuning knobs
         const FONT_SIZE = 18;          // slightly bigger chars = fewer columns
         const COL_STEP = 26;           // spacing between columns (bigger = fewer streams)
-        const FADE_ALPHA = 0.16;       // higher = stronger fade = less clutter
-        const ACTIVE_CHANCE = 0.35;    // only some columns draw each frame (less busy)
-        const TAIL_LEN = 2;            // was 6 (big reduction!)
         const SPEED_MIN = 2.2;         // was 8
         const SPEED_MAX = 5.2;         // was 26
 
