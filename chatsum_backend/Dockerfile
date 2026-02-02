@@ -2,8 +2,7 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-# Copy ONLY backend folder contents into image
-COPY chatsum_backend/ ./
+COPY . .
 
 RUN ./mvnw -DskipTests package
 
